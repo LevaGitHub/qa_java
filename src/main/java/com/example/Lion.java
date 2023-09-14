@@ -2,31 +2,33 @@ package com.example;
 
 import java.util.List;
 
+import static com.example.constants.Constants.*;
+
 public class Lion {
 
     boolean hasMane;
+    private Feline feline;
 
-    public Lion(String sex) throws Exception {
-        if ("Самец".equals(sex)) {
-            hasMane = true;
-        } else if ("Самка".equals(sex)) {
-            hasMane = false;
+    public Lion(String sex, Feline feline) throws Exception {
+        this.feline = feline;
+        if (MALE.equals(sex)) {
+            this.hasMane = true;
+        } else if (FEMALE.equals(sex)) {
+            this.hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самец или самка");
+            throw new Exception(SEX_EXCEPTION);
         }
     }
 
-    Feline feline = new Feline();
-
     public int getKittens() {
-        return feline.getKittens();
+        return this.feline.getKittens();
     }
 
     public boolean doesHaveMane() {
-        return hasMane;
+        return this.hasMane;
     }
 
     public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+        return this.feline.getFood(PREDATOR);
     }
 }

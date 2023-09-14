@@ -2,19 +2,21 @@ package com.example;
 
 import java.util.List;
 
+import static com.example.constants.Constants.*;
+
 public class Animal {
 
     public List<String> getFood(String animalKind) throws Exception {
-        if ("Травоядное".equals(animalKind)) {
+        if (HERBIVORE.equals(animalKind)) {
             return List.of("Трава", "Различные растения");
-        } else if ("Хищник".equals(animalKind)) {
+        } else if (PREDATOR.equals(animalKind)) {
             return List.of("Животные", "Птицы", "Рыба");
         } else {
-            throw new Exception("Неизвестный вид животного, используйте значение Травоядное или Хищник");
+            throw new Exception(ANIMALS_EXCEPTION);
         }
     }
 
     public String getFamily() {
-        return "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
+        return ANIMALS_FAMILY;
     }
 }
