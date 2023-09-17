@@ -31,12 +31,18 @@ public class LionTest {
         }
 
     @Test
-    public void testGetFood() throws Exception {
+    public void testGetFoodValue() throws Exception {
         when(feline.getFood(PREDATOR)).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Lion lion = new Lion(FEMALE, feline);
         assertEquals(
                 PREDATOR_FOOD,
                 lion.getFood().toString());
+    }
+
+    @Test
+    public void testGetFoodCallMethod() throws Exception {
+        Lion lion = new Lion(FEMALE, feline);
+        lion.getFood();
         Mockito.verify(feline, Mockito.times(1)).getFood(PREDATOR);
     }
 

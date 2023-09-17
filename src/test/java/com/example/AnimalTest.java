@@ -10,31 +10,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static com.example.constants.Constants.*;
 
-//@RunWith(MockitoJUnitRunner.class)
-//public class AnimalTest {
-//
-//    @Mock
-//     private Animal animal;
-//
-//    @Test
-//    public void testGetFoodHerbivore() throws Exception {
-//        animal.getFood(HERBIVORE);
-//        Mockito.verify(animal).getFood(HERBIVORE);
-//    }
-//
-//    @Test
-//    public void testGetFamily() throws Exception {
-//        animal.getFamily();
-//        Mockito.verify(animal).getFamily();
-//    }
-//}
-
 
 @RunWith(MockitoJUnitRunner.class)
 public class AnimalTest {
 
-    @Spy
-    private Animal animal;
+    private Animal animal = new Animal();
 
     @Test
     public void testHerbivore() throws Exception {

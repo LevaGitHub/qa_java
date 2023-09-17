@@ -21,12 +21,18 @@ public class CatTest {
     Feline feline;
 
     @Test
-    public void testEatMeat() throws Exception {
+    public void testEatMeatValue() throws Exception {
         when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Cat cat = new Cat(feline);
         assertEquals(
                 PREDATOR_FOOD,
                 cat.getFood().toString());
+    }
+
+    @Test
+    public void testEatMeatCallMethod() throws Exception {
+        Cat cat = new Cat(feline);
+        cat.getFood();
         Mockito.verify(feline, Mockito.times(1)).eatMeat();
     }
 
